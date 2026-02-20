@@ -1,267 +1,1155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Tools | Suhail Wani</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --bg:#ffffff;
-  --text:#0d1117;
-  --sub:#57606a;
-  --card:#f6f8fa;
-  --accent:#0969da;
-}
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0d1117;
-    --text:#e6edf3;
-    --sub:#8b949e;
-    --card:#161b22;
-    --accent:#2f81f7;
-  }
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
-
-html{scroll-behavior:smooth;}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
-
-/* ===== Animated Spotlight ===== */
-body::before{
-  content:"";
-  position:fixed;
-  top:-200px;
-  left:-200px;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,var(--accent),transparent 70%);
-  opacity:0.15;
-  animation:move 12s infinite alternate ease-in-out;
-  z-index:-1;
-}
-
-@keyframes move{
-  0%{transform:translate(0,0);}
-  100%{transform:translate(400px,300px);}
-}
-
-/* ===== NAV ===== */
-nav{
-  position:fixed;
-  width:100%;
-  padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(10px);
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--sub);
-  margin-left:25px;
-  font-size:14px;
-  transition:0.3s;
-}
-
-nav a:hover{color:var(--text);}
-
-.logo{
-  font-weight:700;
-  font-size:16px;
-}
-
-/* ===== HERO ===== */
-.hero{
-  padding:150px 20px 80px;
-  text-align:center;
-  max-width:900px;
-  margin:auto;
-}
-
-.hero h1{
-  font-size:56px;
-  font-weight:800;
-}
-
-.hero p{
-  margin-top:20px;
-  font-size:18px;
-  color:var(--sub);
-  line-height:1.6;
-}
-
-.btn{
-  margin-top:40px;
-  padding:14px 32px;
-  border-radius:10px;
-  background:var(--accent);
-  color:white;
-  text-decoration:none;
-  display:inline-block;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-/* ===== macOS Window Mockup ===== */
-.mockup{
-  margin-top:80px;
-  background:var(--card);
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.15);
-}
-
-.window-bar{
-  display:flex;
-  align-items:center;
-  padding:12px;
-  gap:8px;
-  background:rgba(0,0,0,0.05);
-}
-
-.circle{
-  width:12px;
-  height:12px;
-  border-radius:50%;
-}
-
-.red{background:#ff5f57;}
-.yellow{background:#ffbd2e;}
-.green{background:#28c840;}
-
-.window-content{
-  padding:60px;
-  text-align:center;
-  font-size:18px;
-  color:var(--sub);
-}
-
-/* ===== FEATURES ===== */
-.section{
-  padding:100px 8%;
-  max-width:1100px;
-  margin:auto;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.card{
-  background:var(--card);
-  padding:30px;
-  border-radius:14px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-}
-
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:60px 20px;
-  color:var(--sub);
-  font-size:14px;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .hero h1{font-size:36px;}
-  .window-content{padding:30px;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ImageTools - All-in-one document & image processing app. Features and how they work.">
+  <title>ImageTools — Features & How It Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0C14;
+      --surface: #12151F;
+      --card: #181B28;
+      --card-hover: #1E2236;
+      --border: #252840;
+      --orange: #F05A28;
+      --orange-glow: rgba(240, 90, 40, 0.12);
+      --text: #EAEAF0;
+      --text-dim: #8890A8;
+      --green: #4ADE80;
+      --blue: #60A5FA;
+      --purple: #A78BFA;
+      --pink: #F472B6;
+      --cyan: #22D3EE;
+      --yellow: #FACC15;
+      --red: #FB7185;
+      --radius: 18px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* ---- HERO ---- */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 70px;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(240, 90, 40, 0.10) 0%, transparent 70%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(2.2em, 5vw, 3.6em);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--orange) 0%, #FF9A5C 50%, #FF6B3D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: 1.15em;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      padding: 8px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.85em;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+    .hero-stat strong {
+      color: var(--orange);
+    }
+    /* ---- NAV ---- */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 12, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      overflow-x: auto;
+    }
+    .sticky-nav-inner {
+      display: flex;
+      gap: 6px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+    .sticky-nav a {
+      white-space: nowrap;
+      padding: 7px 16px;
+      border-radius: 10px;
+      font-size: 0.82em;
+      font-weight: 600;
+      color: var(--text-dim);
+      transition: all 0.2s;
+    }
+    .sticky-nav a:hover {
+      background: var(--orange-glow);
+      color: var(--orange);
+      text-decoration: none;
+    }
+    /* ---- CONTENT ---- */
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+    section {
+      margin-top: 64px;
+    }
+    h2 {
+      font-size: 1.7em;
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 6px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      letter-spacing: -0.5px;
+    }
+    h2 span {
+      font-size: 0.55em;
+      color: var(--text-dim);
+      font-weight: 500;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    h3 {
+      font-size: 1.15em;
+      font-weight: 700;
+      color: var(--text);
+      margin: 30px 0 12px;
+    }
+    p,
+    li {
+      color: var(--text-dim);
+      font-size: 0.93em;
+    }
+    ul {
+      padding-left: 22px;
+      margin: 8px 0;
+    }
+    li {
+      margin: 5px 0;
+    }
+    li strong {
+      color: var(--text);
+    }
+    /* ---- CARDS ---- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .fcard {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .fcard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .fcard:hover {
+      border-color: rgba(240, 90, 40, 0.4);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .fcard:hover::before {
+      opacity: 1;
+    }
+    .fcard-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4em;
+      margin-bottom: 14px;
+    }
+    .fcard h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .fcard p {
+      font-size: 0.88em;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .fcard .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.72em;
+      font-weight: 700;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    /* tag colors */
+    .t-ai {
+      background: rgba(167, 139, 250, 0.15);
+      color: var(--purple);
+    }
+    .t-pdf {
+      background: rgba(96, 165, 250, 0.15);
+      color: var(--blue);
+    }
+    .t-img {
+      background: rgba(74, 222, 128, 0.15);
+      color: var(--green);
+    }
+    .t-scan {
+      background: rgba(250, 204, 21, 0.15);
+      color: var(--yellow);
+    }
+    .t-sec {
+      background: rgba(251, 113, 133, 0.15);
+      color: var(--red);
+    }
+    .t-edit {
+      background: rgba(244, 114, 182, 0.15);
+      color: var(--pink);
+    }
+    .t-tool {
+      background: rgba(34, 211, 238, 0.15);
+      color: var(--cyan);
+    }
+    /* ---- FLOW BOX ---- */
+    .flow-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 16px 0;
+    }
+    .flow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .flow-step {
+      padding: 8px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.85em;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .flow-arrow {
+      color: var(--orange);
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+    /* ---- SETTINGS TABLE ---- */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .setting-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .setting-icon {
+      font-size: 1.3em;
+      margin-top: 2px;
+    }
+    .setting-item h5 {
+      font-size: 0.9em;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .setting-item p {
+      font-size: 0.8em;
+      margin: 0;
+      color: var(--text-dim);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--text-dim);
+      font-size: 0.85em;
+    }
+    @media(max-width:640px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .settings-grid {
+        grid-template-columns: 1fr;
+      }
+      .flow-steps {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<nav>
-  <div class="logo">Image Tools</div>
-  <div>
-    <a href="#features">Features</a>
-    <a href="#download">Download</a>
-    <a href="#about">About</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <h1>Image Tools</h1>
-  <p>
-    A premium Android image processing suite built with Kotlin & Jetpack Compose.
-    Designed with product-level precision.
-  </p>
-
-  <a class="btn"
-     href="https://release-assets.githubusercontent.com/github-production-release-asset/1157265109/e220b428-c99e-435c-a3b0-071e41e447f9?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-02-17T19%3A06%3A13Z&rscd=attachment%3B+filename%3Dapp-release.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-b12b-9515b896b4de..."
-     target="_blank">
-     Download for Android
-  </a>
-
-  <div class="mockup">
-    <div class="window-bar">
-      <div class="circle red"></div>
-      <div class="circle yellow"></div>
-      <div class="circle green"></div>
+  <!-- ========== HERO ========== -->
+  <header class="hero">
+    <h1>ImageToolsPro</h1>
+    <p>All-in-one document &amp; image processing app with on-device AI. Here&rsquo;s everything it does and how it
+      works.</p>
+    <div class="hero-stats">
+      <span class="hero-stat"><strong>25+</strong> Tools</span>
+      <span class="hero-stat"><strong>4</strong> Main Tabs</span>
+      <span class="hero-stat"><strong>5</strong> AI Features</span>
+      <span class="hero-stat"><strong>30+</strong> Settings</span>
     </div>
-    <div class="window-content">
-      Image Tools Preview Interface<br>
-      Clean. Fast. Powerful.
+  </header>
+  <!-- ========== STICKY NAV ========== -->
+  <nav class="sticky-nav">
+    <div class="sticky-nav-inner">
+      <a href="#app-overview">Overview</a>
+      <a href="#ai-features">AI Features</a>
+      <a href="#pdf-tools">PDF Tools</a>
+      <a href="#image-tools">Image Tools</a>
+      <a href="#scanning">Scanning</a>
+      <a href="#signatures">Signatures</a>
+      <a href="#security">Security</a>
+      <a href="#settings">Settings</a>
+      <a href="#home-screen">Home Screen</a>
     </div>
-  </div>
-</section>
-
-<section class="section" id="features">
-  <h2>Features</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>AI Processing</h3>
-      <p>Smart compression & background removal.</p>
-    </div>
-    <div class="card">
-      <h3>Offline Ready</h3>
-      <p>Core tools work without internet dependency.</p>
-    </div>
-    <div class="card">
-      <h3>Modern UI</h3>
-      <p>Built entirely with Jetpack Compose.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <h2>About</h2>
-  <div class="card">
-    <h3>Suhail Wani</h3>
-    <p>Android developer focused on premium UI, performance and clean architecture.</p>
-  </div>
-</section>
-
-<footer>
-© 2026 Suhail Wani — Crafted with precision.
-</footer>
-
-
+  </nav>
+  <!-- ========== CONTENT ========== -->
+  <main class="content">
+    <!-- ===== APP OVERVIEW ===== -->
+    <section id="app-overview">
+      <h2>📱 App Overview</h2>
+      <p>ImageToolsPro is a premium all-in-one app for handling documents and images on Android. The main screen has
+        <strong>4 swipeable tabs</strong>:</p>
+      <div class="card-grid" style="margin-top:20px;">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(240,90,40,0.15);">🏠</div>
+          <h4>Home Tab</h4>
+          <p>Dashboard with system health indicator, AI tool quick-access cards, a horizontal carousel of 14 quick
+            actions, and a scrollable list of all your recent files. Pull down to refresh. Long-press files for
+            multi-select mode to bulk delete, share, or move to vault.</p>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">📄</div>
+          <h4>PDF Tab</h4>
+          <p>Browse all your PDF files. Create new PDFs, import existing ones, or use any of the PDF tools (compress,
+            merge, split, convert, etc.) directly from here.</p>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(74,222,128,0.15);">📦</div>
+          <h4>Compress Tab</h4>
+          <p>Browse images for compression. Pick one or many images to compress with custom quality, resolution, and
+            format settings. See before/after size comparison.</p>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(244,114,182,0.15);">✂️</div>
+          <h4>Remove BG Tab</h4>
+          <p>AI-powered background removal. Pick a photo, the AI extracts the subject, then apply solid colors,
+            gradients, or custom background images. Preview with a toggle and export as PNG.</p>
+        </div>
+      </div>
+    </section>
+    <!-- ===== AI FEATURES ===== -->
+    <section id="ai-features">
+      <h2>🤖 AI-Powered Features <span>On-device, no internet required</span></h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(167,139,250,0.15);">🧹</div>
+          <h4>AI Text Eraser</h4>
+          <p>Removes text from photos while preserving the image underneath. The AI detects all text regions in the
+            image and intelligently fills them in to look natural.</p>
+          <span class="tag t-ai">PRO • AI</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📸 Pick Image</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🔍 AI Detects Text</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🎨 Inpainting Fills Areas</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">💾 Save Clean Image</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(34,211,238,0.15);">🔬</div>
+          <h4>Smart AI Upscale</h4>
+          <p>Enhances image quality and resolution using on-device AI models. Multiple quality tiers available (Basic
+            through Ultimate). Makes blurry or low-res images sharper and clearer.</p>
+          <span class="tag t-ai">HD+ • AI</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📸 Pick Image</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">⚙️ Choose Quality Tier</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🤖 AI Enhances</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">💾 Save HD Image</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(244,114,182,0.15);">✂️</div>
+          <h4>Remove Background</h4>
+          <p>Automatically detects the main subject in a photo and removes the background. Then you can replace it with
+            a solid color, a gradient, or any custom image. Toggle between original and result to compare.</p>
+          <span class="tag t-ai">AI</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📸 Pick Photo</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🤖 AI Extracts Subject</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🎨 Choose New BG</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">💾 Export PNG</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(250,204,21,0.15);">🔍</div>
+          <h4>OCR — Text Recognition</h4>
+          <p>Extracts text from images in 5 languages: English, Chinese, Devanagari, Japanese, and Korean. Copy the
+            text, share it, or export it as a PDF or TXT file.</p>
+          <span class="tag t-ai">AI • Multi-Language</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📸 Pick / Capture Image</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🤖 AI Reads Text</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📋 Copy / Share / Export</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(251,113,133,0.15);">👤</div>
+          <h4>Face Detection (ID Cards)</h4>
+          <p>Used within the ID Card Scanner to detect and frame faces on identity documents for proper alignment and
+            cropping during scan.</p>
+          <span class="tag t-ai">AI</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== PDF TOOLS ===== -->
+    <section id="pdf-tools">
+      <h2>📄 PDF Tools</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">📖</div>
+          <h4>PDF Viewer</h4>
+          <p>Full-featured viewer with smooth page scrolling, pinch-to-zoom, page thumbnails, bookmarks, and a page grid
+            for quick navigation. Premium glassmorphism UI with a bottom dock for tools.</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">📝</div>
+          <h4>Text to PDF</h4>
+          <p>A full rich-text editor with Markdown support (bold, italic, headers, bullet lists). Customize font size,
+            color, alignment. Choose page size, orientation, and margins. Auto-saves drafts. Generates professional PDF
+            output.</p>
+          <span class="tag t-pdf">PDF</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">✍️ Type / Paste Text</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🎨 Format with Markdown</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">⚙️ Set Page Options</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📄 Generate PDF</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">📐</div>
+          <h4>Compress PDF</h4>
+          <p>Reduce PDF file size with 3 compression levels: Low, Medium, and High. Shows original vs compressed size
+            comparison. Runs in the background with a progress notification so you can keep using the app.</p>
+          <span class="tag t-pdf">PDF</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📄 Pick PDF</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📊 Choose Level</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">⚙️ Background Processing</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">✅ Compressed PDF</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">🔗</div>
+          <h4>Merge PDFs</h4>
+          <p>Select multiple PDF files, drag to reorder them, then merge into a single combined PDF with professional
+            metadata.</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">✂️</div>
+          <h4>Split PDF</h4>
+          <p>Split a PDF by selecting specific page ranges or individual pages. Preview pages before splitting. Creates
+            separate PDF files for each range.</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">🔀</div>
+          <h4>PDF Rearranger</h4>
+          <p>Open a PDF and rearrange its pages by dragging them into a new order. See thumbnail previews of each page.
+            Supports password-protected PDFs (prompts for password).</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">🖼️</div>
+          <h4>PDF to JPG</h4>
+          <p>Convert any or all pages of a PDF into JPG images. Select which pages to convert and set quality. Exports
+            as individual image files.</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">📃</div>
+          <h4>PDF to Word</h4>
+          <p>Convert PDF files into editable .docx Word documents. Extracts text and preserves formatting. Handles
+            password-protected PDFs by asking for the password first.</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(251,113,133,0.15);">🔐</div>
+          <h4>PDF Password — Set &amp; Unlock</h4>
+          <p>Add password protection to any PDF file to keep it secure. Also unlock password-protected PDFs if you know
+            the password, removing the encryption.</p>
+          <span class="tag t-sec">Security</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== IMAGE TOOLS ===== -->
+    <section id="image-tools">
+      <h2>🖼️ Image Tools</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(74,222,128,0.15);">📦</div>
+          <h4>Image Compress</h4>
+          <p>Compress images with presets (Low/Medium/High) or set a custom target file size. Choose output format (JPG,
+            PNG, WEBP), adjust resolution, and optionally strip metadata. See a before/after size comparison with
+            preview.</p>
+          <span class="tag t-img">Image</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">🖼️ Pick Images</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">⚙️ Set Quality/Size/Format</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📊 Preview Comparison</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">💾 Save</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(244,114,182,0.15);">✏️</div>
+          <h4>Image Editor</h4>
+          <p>Full-featured editor: crop with multiple aspect ratios, rotate, apply filters (grayscale, sharpen,
+            contrast, etc.), and adjust settings. Auto-crop mode available. Save edited images directly to your gallery.
+          </p>
+          <span class="tag t-edit">Editor</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(34,211,238,0.15);">🔄</div>
+          <h4>Image Converter</h4>
+          <p>Convert images between JPG, PNG, and WEBP formats. Supports batch conversion — pick multiple images and
+            convert them all at once with quality settings.</p>
+          <span class="tag t-img">Image</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(96,165,250,0.15);">📸</div>
+          <h4>Image to PDF</h4>
+          <p>Select one or multiple images and convert them into a single PDF. Configure page size, orientation,
+            margins, and quality. Each image becomes a page in the PDF.</p>
+          <span class="tag t-pdf">PDF</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(74,222,128,0.15);">👁️</div>
+          <h4>Image Preview</h4>
+          <p>View images in full-screen with zoom and pan. Quick actions to edit, share, compress, or convert. Shows
+            file details like dimensions and size.</p>
+          <span class="tag t-img">Image</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SCANNING ===== -->
+    <section id="scanning">
+      <h2>📷 Scanning Features</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(250,204,21,0.15);">📷</div>
+          <h4>Smart Document Scanner</h4>
+          <p>Scan documents using your camera or import from gallery. The app automatically detects document edges,
+            corrects perspective, and enhances the scan. Supports multi-page scanning — keep scanning pages and combine
+            them into a single PDF.</p>
+          <span class="tag t-scan">Scanner</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📷 Camera or Gallery</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🔲 Auto Edge Detection</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📐 Perspective Fix</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🎨 Enhance (B&W, Sharpen)</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📄 Export as PDF</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(250,204,21,0.15);">🪪</div>
+          <h4>ID Card Scanner</h4>
+          <p>Scan the front and back of ID cards (license, passport, ID). AI detects the face for proper alignment.
+            Quick edit tools to adjust. Export as a professional formatted PDF with both sides on one page.</p>
+          <span class="tag t-scan">Scanner</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">🪪 Scan Front</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🪪 Scan Back</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">✏️ Quick Edit</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📄 Generate ID PDF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SIGNATURES & WATERMARKS ===== -->
+    <section id="signatures">
+      <h2>✍️ Signatures &amp; Watermarks</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(244,114,182,0.15);">🖊️</div>
+          <h4>Add Signature</h4>
+          <p>Draw your signature on a canvas with your finger. Then place it on any PDF or image — drag to position,
+            resize, and set on specific pages. You can also add text elements alongside the signature.</p>
+          <span class="tag t-edit">Editor</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">📄 Pick PDF or Image</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">✍️ Draw Signature</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📌 Drag &amp; Place</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">💾 Save Signed File</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(167,139,250,0.15);">💧</div>
+          <h4>Watermark &amp; Branding</h4>
+          <p>Add text or logo watermarks to PDF files. Customize opacity, font size, rotation angle, color, and choose
+            from 9 positions (corners, edges, center). Tiled mode repeats the watermark across the entire page. Can also
+            add password protection.</p>
+          <span class="tag t-edit">Editor</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">Watermark options:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">Text Watermark</span>
+              <span class="flow-step">Logo Watermark</span>
+              <span class="flow-step">Combined</span>
+              <span class="flow-step">Tiled Mode</span>
+              <span class="flow-step">9 Positions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SECURITY ===== -->
+    <section id="security">
+      <h2>🔐 Security &amp; Privacy</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(251,113,133,0.15);">🔒</div>
+          <h4>Biometric App Lock</h4>
+          <p>Lock the entire app with fingerprint or face unlock. When you leave the app or turn off the screen, it
+            locks automatically. A full-screen lock overlay appears until you authenticate. Smart enough to not lock
+            when you're just picking a file from the gallery.</p>
+          <span class="tag t-sec">Security</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(251,113,133,0.15);">🏦</div>
+          <h4>Encrypted Vault</h4>
+          <p>A hidden, encrypted storage area for sensitive PDFs and images. Set up a PIN (with optional biometric),
+            then move files into the vault. Files are encrypted on disk — nobody can access them without your PIN, not
+            even file managers.</p>
+          <span class="tag t-sec">Security</span>
+          <div class="flow-box" style="margin-top:14px;">
+            <strong style="color:var(--text);font-size:0.85em;">How it works:</strong>
+            <div class="flow-steps">
+              <span class="flow-step">🔑 Set PIN</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">📁 Pick Files</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">🔐 AES Encrypted</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-step">👁️ Decrypt to View</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(251,113,133,0.15);">🛡️</div>
+          <h4>Screen Protection</h4>
+          <p>Prevents screenshots and screen recording when enabled. Automatically activates when the app is locked, so
+            no one can capture your private content from the task switcher.</p>
+          <span class="tag t-sec">Security</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(251,113,133,0.15);">♻️</div>
+          <h4>Recycle Bin</h4>
+          <p>Deleted files aren't gone forever — they go to a recycle bin first. Restore them anytime within the
+            retention period (configurable: 7 to 90 days). After that, they're permanently cleaned up automatically.</p>
+          <span class="tag t-sec">Safety</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FILE MANAGEMENT ===== -->
+    <section id="file-mgmt">
+      <h2>📂 File Management</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(34,211,238,0.15);">📊</div>
+          <h4>Smart File Browser</h4>
+          <p>All your created files (PDFs, images, documents) in one place. Sort by name, date, size, or type. Filter by
+            file type (PDF, Image, Word, Text). Search across all files. Pin important files to the top.</p>
+          <span class="tag t-tool">Tool</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(34,211,238,0.15);">📋</div>
+          <h4>File Actions</h4>
+          <p>Tap the menu on any file to: Rename, Share, Delete, Compress, Convert format, Move to Vault, Add Signature,
+            Add Watermark, Open in Editor, or view full file details (size, date, page count, source feature).</p>
+          <span class="tag t-tool">Tool</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(34,211,238,0.15);">✅</div>
+          <h4>Multi-Select Mode</h4>
+          <p>Long-press to enter selection mode. Select multiple files, then bulk share, bulk delete, bulk move to
+            vault, or select all at once.</p>
+          <span class="tag t-tool">Tool</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(34,211,238,0.15);">📄</div>
+          <h4>Document Viewers</h4>
+          <p>Built-in viewers for: PDF files (full-featured viewer), Word documents (.docx), and plain text files. No
+            need for external apps. The app can be set as the default handler for all these file types.</p>
+          <span class="tag t-tool">Viewer</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== ENTERPRISE ===== -->
+    <section id="enterprise">
+      <h2>🏢 Enterprise &amp; Branding</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(240,90,40,0.15);">🏷️</div>
+          <h4>Custom Branding</h4>
+          <p>Enable enterprise branding to add your business name to generated PDFs. When enabled, an overlay shows your
+            brand identity on document outputs for a professional touch.</p>
+          <span class="tag t-tool">Enterprise</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(240,90,40,0.15);">🛡️</div>
+          <h4>Asset Brand Protection</h4>
+          <p>Prevents tampering with document metadata and layout on generated files. Ensures your branded documents
+            remain intact when shared.</p>
+          <span class="tag t-tool">Enterprise</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== MONITORING ===== -->
+    <section id="monitoring">
+      <h2>📊 Performance &amp; Monitoring</h2>
+      <div class="card-grid">
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(74,222,128,0.15);">💚</div>
+          <h4>System Health Monitor</h4>
+          <p>Real-time monitoring of device CPU usage, RAM usage, storage space, and battery level. A health score rates
+            your device's current state. Visible on the home screen as a compact status bar and in detail on the
+            monitoring page.</p>
+          <span class="tag t-tool">Monitor</span>
+        </div>
+        <div class="fcard">
+          <div class="fcard-icon" style="background:rgba(74,222,128,0.15);">⚡</div>
+          <h4>Performance Optimization</h4>
+          <p>One-tap optimization that clears cache, frees memory, and cleans up temporary files. Auto-optimize option
+            runs this on every app startup to keep things fast.</p>
+          <span class="tag t-tool">Tool</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SETTINGS ===== -->
+    <section id="settings">
+      <h2>⚙️ All Settings</h2>
+      <h3>🎨 Appearance</h3>
+      <div class="settings-grid">
+        <div class="setting-item"><span class="setting-icon">🌓</span>
+          <div>
+            <h5>Dark / Light Mode</h5>
+            <p>Manual toggle or follow device system setting</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🎨</span>
+          <div>
+            <h5>Custom Text Color</h5>
+            <p>Choose from 30+ preset colors for all text in the app</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📁</span>
+          <div>
+            <h5>Show File Extensions</h5>
+            <p>Toggle .pdf, .jpg etc. in file names</p>
+          </div>
+        </div>
+      </div>
+      <h3>🤖 Engine &amp; AI</h3>
+      <div class="settings-grid">
+        <div class="setting-item"><span class="setting-icon">🔬</span>
+          <div>
+            <h5>Smart AI Upscaling</h5>
+            <p>Enable AI-powered image enhancement</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📺</span>
+          <div>
+            <h5>High-Res Output</h5>
+            <p>Generate higher resolution outputs from all tools</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">✨</span>
+          <div>
+            <h5>Ultra-Smooth Animations</h5>
+            <p>Premium fluid animations throughout the app</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">⚡</span>
+          <div>
+            <h5>High Performance Mode</h5>
+            <p>Prioritize speed over memory conservation</p>
+          </div>
+        </div>
+      </div>
+      <h3>📄 PDF &amp; Conversion Defaults</h3>
+      <div class="settings-grid">
+        <div class="setting-item"><span class="setting-icon">🏆</span>
+          <div>
+            <h5>PDF Quality</h5>
+            <p>Low / Medium / High</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🖼️</span>
+          <div>
+            <h5>Image Format</h5>
+            <p>JPG / PNG / WEBP</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📐</span>
+          <div>
+            <h5>Page Size</h5>
+            <p>A3 / A4 / A5 / Letter / Legal</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🔄</span>
+          <div>
+            <h5>Orientation</h5>
+            <p>Portrait / Landscape / Auto</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📏</span>
+          <div>
+            <h5>Margins</h5>
+            <p>Multiple margin presets available</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🏷️</span>
+          <div>
+            <h5>File Name Prefix</h5>
+            <p>Custom prefix for all generated files</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🌍</span>
+          <div>
+            <h5>OCR Language</h5>
+            <p>Default language for text recognition</p>
+          </div>
+        </div>
+      </div>
+      <h3>🔐 Privacy &amp; Security</h3>
+      <div class="settings-grid">
+        <div class="setting-item"><span class="setting-icon">🔒</span>
+          <div>
+            <h5>Biometric App Lock</h5>
+            <p>Fingerprint / face unlock to open the app</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🛡️</span>
+          <div>
+            <h5>Screen Protection</h5>
+            <p>Block screenshots &amp; screen recording</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🏦</span>
+          <div>
+            <h5>Encrypted Vault</h5>
+            <p>PIN-protected encrypted file storage</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">♻️</span>
+          <div>
+            <h5>Recycle Bin Retention</h5>
+            <p>7 / 15 / 30 / 60 / 90 days before auto-delete</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🧹</span>
+          <div>
+            <h5>Auto Export Cleanup</h5>
+            <p>Auto-clean temp files after export</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">✅</span>
+          <div>
+            <h5>Brand Protection</h5>
+            <p>Prevent metadata tampering on documents</p>
+          </div>
+        </div>
+      </div>
+      <h3>🔧 Maintenance</h3>
+      <div class="settings-grid">
+        <div class="setting-item"><span class="setting-icon">🧹</span>
+          <div>
+            <h5>Auto-Optimize</h5>
+            <p>Clear cache on startup automatically</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">💾</span>
+          <div>
+            <h5>Auto-Save to Gallery</h5>
+            <p>Auto-save converted images to gallery</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📳</span>
+          <div>
+            <h5>Haptic Feedback</h5>
+            <p>Vibration on button taps (global toggle)</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📊</span>
+          <div>
+            <h5>System Monitor</h5>
+            <p>Show real-time CPU/RAM/storage widget</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">⚡</span>
+          <div>
+            <h5>One-Tap Optimize</h5>
+            <p>Deep clean cache and optimize engine</p>
+          </div>
+        </div>
+      </div>
+      <h3>ℹ️ About</h3>
+      <div class="settings-grid">
+        <div class="setting-item"><span class="setting-icon">📤</span>
+          <div>
+            <h5>Share App</h5>
+            <p>Share with friends</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📜</span>
+          <div>
+            <h5>Privacy Policy</h5>
+            <p>Built-in privacy policy viewer</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">ℹ️</span>
+          <div>
+            <h5>Version</h5>
+            <p>Current app version info</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== HOME SCREEN DETAILS ===== -->
+    <section id="home-screen">
+      <h2>🏠 Home Screen — Quick Actions</h2>
+      <p>The home screen features a horizontal scrollable carousel with these 14 quick actions:</p>
+      <div class="settings-grid" style="margin-top:16px;">
+        <div class="setting-item"><span class="setting-icon">🔍</span>
+          <div>
+            <h5>OCR</h5>
+            <p>Extract text from images</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🪪</span>
+          <div>
+            <h5>ID Card Scanner</h5>
+            <p>Scan ID cards to PDF</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🔀</span>
+          <div>
+            <h5>PDF Rearranger</h5>
+            <p>Reorder PDF pages</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📝</span>
+          <div>
+            <h5>Text to PDF</h5>
+            <p>Create PDFs from text</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📷</span>
+          <div>
+            <h5>Smart Scan</h5>
+            <p>Scan documents</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📐</span>
+          <div>
+            <h5>Compress PDF</h5>
+            <p>Reduce PDF file size</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🖼️</span>
+          <div>
+            <h5>PDF to JPG</h5>
+            <p>Convert pages to images</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🔗</span>
+          <div>
+            <h5>Merge PDF</h5>
+            <p>Combine multiple PDFs</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">📃</span>
+          <div>
+            <h5>PDF to Word</h5>
+            <p>Convert to .docx</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">✂️</span>
+          <div>
+            <h5>Split PDF</h5>
+            <p>Extract pages</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🔄</span>
+          <div>
+            <h5>Image Converter</h5>
+            <p>JPG ↔ PNG ↔ WEBP</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">🧹</span>
+          <div>
+            <h5>AI Text Eraser</h5>
+            <p>Remove text from photos</p>
+          </div>
+        </div>
+        <div class="setting-item"><span class="setting-icon">✍️</span>
+          <div>
+            <h5>Add Signature</h5>
+            <p>Sign PDFs &amp; images</p>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:20px;">Additionally, two <strong>featured AI cards</strong> are prominently displayed:</p>
+      <ul>
+        <li><strong>AI Text Eraser</strong> — "Wipe text while keeping the photo" (PRO badge)</li>
+        <li><strong>Smart AI Upscale</strong> — "Enhance the quality of your images" (HD+ badge)</li>
+      </ul>
+    </section>
+    <div class="divider"></div>
+    <footer>
+      <p>ImageToolsPro — Features &amp; How It Works</p>
+      <p style="margin-top:6px;font-size:0.8em;">All processing happens on-device. No files are uploaded to any server.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>
