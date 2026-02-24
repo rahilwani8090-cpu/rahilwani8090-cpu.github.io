@@ -265,7 +265,7 @@
     /* NAV */
     .nav {
       position: fixed;
-      top: 0;
+      top: 36px;
       left: 0;
       right: 0;
       z-index: 200;
@@ -372,7 +372,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 24px 80px;
+      padding: 160px 24px 80px;
       position: relative;
       z-index: 1;
       overflow: hidden;
@@ -1812,6 +1812,22 @@
     <div class="bb-orb bbo3"></div>
     <div class="bb-orb bbo4"></div>
     <div class="bb-noise"></div>
+  </div>
+
+  <!-- INSTAGRAM TOP BANNER -->
+  <div id="ig-banner"
+    style="position:fixed;top:0;left:0;right:0;z-index:300;background:linear-gradient(90deg,#833AB4,#FD1D1D,#F77737);text-align:center;padding:8px 16px;font-size:.82em;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;"
+    onclick="window.open('https://www.instagram.com/suhail_wani_03?igsh=MW9oMm9saHpoMGVxZg==','_blank')">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+    Follow us on Instagram — @suhail_wani_03
+    <span
+      onclick="event.stopPropagation();document.getElementById('ig-banner').style.display='none';document.querySelector('.nav').style.top='0px';document.querySelector('.hero').style.paddingTop='140px';"
+      style="margin-left:12px;opacity:.7;font-size:1.1em;cursor:pointer;">✕</span>
   </div>
 
   <!-- NAVBAR -->
