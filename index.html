@@ -594,6 +594,93 @@
       color: var(--fire2);
     }
 
+    /* ARCANE BUTTON STYLE */
+    .btn-arcane {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      border-radius: 14px;
+      background: rgba(13, 16, 32, 0.82);
+      color: var(--ice);
+      font-size: 1em;
+      font-weight: 700;
+      border: 1px solid rgba(0, 232, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 232, 255, 0.15);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-arcane::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(90deg, transparent, rgba(0, 232, 255, 0.8), transparent);
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .btn-arcane:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn-arcane-core {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(155, 109, 255, 0.15) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .btn-arcane:hover .btn-arcane-core {
+      opacity: 1;
+      animation: arcanePulse 1.5s ease-in-out infinite;
+    }
+
+    .btn-arcane:hover {
+      transform: translateY(-4px) scale(1.02);
+      border-color: var(--ice);
+      color: #fff;
+      box-shadow: 0 0 30px rgba(0, 232, 255, 0.4), 0 0 60px rgba(155, 109, 255, 0.2);
+    }
+
+    .btn-arcane-icon {
+      font-size: 1.25em;
+      filter: drop-shadow(0 0 5px var(--ice));
+      animation: arcaneFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes arcanePulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes arcaneFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0);
+      }
+
+      50% {
+        transform: translateY(-3px) rotate(5deg);
+      }
+    }
+
     .hero-stats {
       display: flex;
       gap: 10px;
@@ -1756,9 +1843,17 @@
 
     /* Large laptops / wide screens */
     @media(max-width:1200px) {
-      .ai-inner { gap: 48px; }
-      .stats-inner { gap: 16px; }
-      .how-grid { gap: 16px; }
+      .ai-inner {
+        gap: 48px;
+      }
+
+      .stats-inner {
+        gap: 16px;
+      }
+
+      .how-grid {
+        gap: 16px;
+      }
     }
 
     /* Tablets */
@@ -1768,120 +1863,457 @@
         gap: 48px;
         padding: 60px 20px;
       }
-      .ai-visual { order: -1; }
+
+      .ai-visual {
+        order: -1;
+      }
+
       .security-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      .shield-visual { display: none; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .how-line { display: none; }
-      .how-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero { padding: 160px 20px 60px; }
-      .hero-h1 { font-size: clamp(2.4em, 8vw, 4.8em); }
-      .hero-sub { font-size: .95em; padding: 0 10px; }
-      .sec { padding: 60px 20px; }
-      .sec-h2 { font-size: clamp(2em, 4.5vw, 3.6em); }
-      .stats-inner { flex-wrap: wrap; gap: 12px; justify-content: center; }
-      .stat-item { min-width: 100px; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .feat-card { padding: 24px; }
-      .tools-mega { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
-      .trust-badges { gap: 8px; }
-      .cta-h2 { font-size: clamp(2em, 5vw, 3.5em); }
-      .nav { padding: 0 16px; }
-      #ig-banner { font-size: .75em; padding: 7px 12px; }
+
+      .shield-visual {
+        display: none;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-line {
+        display: none;
+      }
+
+      .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding: 160px 20px 60px;
+      }
+
+      .hero-h1 {
+        font-size: clamp(2.4em, 8vw, 4.8em);
+      }
+
+      .hero-sub {
+        font-size: .95em;
+        padding: 0 10px;
+      }
+
+      .sec {
+        padding: 60px 20px;
+      }
+
+      .sec-h2 {
+        font-size: clamp(2em, 4.5vw, 3.6em);
+      }
+
+      .stats-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .stat-item {
+        min-width: 100px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .feat-card {
+        padding: 24px;
+      }
+
+      .tools-mega {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 8px;
+      }
+
+      .trust-badges {
+        gap: 8px;
+      }
+
+      .cta-h2 {
+        font-size: clamp(2em, 5vw, 3.5em);
+      }
+
+      .nav {
+        padding: 0 16px;
+      }
+
+      #ig-banner {
+        font-size: .75em;
+        padding: 7px 12px;
+      }
     }
 
     /* Small tablets / large phones - landscape */
     @media(max-width:768px) {
-      .hero-btns { flex-direction: column; gap: 12px; align-items: center; }
-      .btn-primary, .btn-ghost { width: 100%; max-width: 320px; justify-content: center; }
-      .hero-stats { gap: 8px; }
-      .hstat { font-size: .7em; padding: 6px 12px; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
-      .how-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .how-card { padding: 20px 16px; }
-      .how-num { font-size: 2.4em; }
-      .how-icon { font-size: 1.8em; }
-      .trust-h3 { font-size: clamp(2em, 5vw, 3em); }
-      .trust-sub { font-size: .9em; padding: 0 16px; }
-      .tbadge { padding: 10px 16px; font-size: .78em; }
-      .cta-sub { font-size: .9em; padding: 0 16px; }
-      .footer-inner { gap: 32px; }
+      .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .hero-stats {
+        gap: 8px;
+      }
+
+      .hstat {
+        font-size: .7em;
+        padding: 6px 12px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .how-card {
+        padding: 20px 16px;
+      }
+
+      .how-num {
+        font-size: 2.4em;
+      }
+
+      .how-icon {
+        font-size: 1.8em;
+      }
+
+      .trust-h3 {
+        font-size: clamp(2em, 5vw, 3em);
+      }
+
+      .trust-sub {
+        font-size: .9em;
+        padding: 0 16px;
+      }
+
+      .tbadge {
+        padding: 10px 16px;
+        font-size: .78em;
+      }
+
+      .cta-sub {
+        font-size: .9em;
+        padding: 0 16px;
+      }
+
+      .footer-inner {
+        gap: 32px;
+      }
     }
 
     /* Phones */
     @media(max-width:640px) {
-      .nav-links { display: none; }
-      .nav { top: 32px; }
-      .hero { padding: 140px 16px 50px; min-height: auto; }
-      .hero-h1 { font-size: clamp(2em, 10vw, 3em); }
-      .hero-sub { font-size: .88em; }
-      .hero-typewriter { font-size: .85em; }
-      .features-grid { grid-template-columns: 1fr; gap: 14px; }
-      .feat-card { padding: 20px; }
-      .feat-card h3 { font-size: .95em; }
-      .feat-card p { font-size: .82em; }
-      .tools-mega { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-      .tool-chip { padding: 10px 12px; font-size: .75em; gap: 6px; }
-      .how-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .how-card { padding: 16px 12px; }
-      .how-num { font-size: 2em; }
-      .how-icon { font-size: 1.5em; margin-bottom: 10px; }
-      .how-card h4 { font-size: .85em; }
-      .how-card p { font-size: .75em; }
-      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
-      .footer-desc { max-width: 100%; }
-      .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
-      .fp, .ai-float-badge { display: none; }
-      .sec { padding: 50px 16px; }
-      .sec-p { font-size: .92em; }
-      .stats-inner { gap: 8px; padding: 0 8px; }
-      .stat-item { min-width: 80px; }
-      .stat-num { font-size: 1.8em; }
-      .stat-label { font-size: .55em; }
-      .ai-device { border-radius: 20px; padding: 16px; }
-      .ai-inner { padding: 50px 16px; }
-      .marquee-section { padding: 40px 0; }
-      .marquee-label { font-size: .65em; margin-bottom: 20px; }
-      .security-grid { gap: 24px; }
-      .sec-list-item { gap: 12px; }
-      .trust-inner { padding: 48px 16px; }
-      .trust-badges { gap: 6px; }
-      .tbadge { padding: 8px 12px; font-size: .72em; }
-      .cta-section { padding: 60px 16px 40px; }
-      .cta-h2 { font-size: clamp(1.6em, 7vw, 2.5em); }
-      .cta-sub { font-size: .85em; }
-      #ig-banner { font-size: .7em; padding: 6px 10px; gap: 6px; }
-      #ig-banner svg { width: 14px; height: 14px; }
+      .nav-links {
+        display: none;
+      }
+
+      .nav {
+        top: 32px;
+      }
+
+      .hero {
+        padding: 140px 16px 50px;
+        min-height: auto;
+      }
+
+      .hero-h1 {
+        font-size: clamp(2em, 10vw, 3em);
+      }
+
+      .hero-sub {
+        font-size: .88em;
+      }
+
+      .hero-typewriter {
+        font-size: .85em;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .feat-card {
+        padding: 20px;
+      }
+
+      .feat-card h3 {
+        font-size: .95em;
+      }
+
+      .feat-card p {
+        font-size: .82em;
+      }
+
+      .tools-mega {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+
+      .tool-chip {
+        padding: 10px 12px;
+        font-size: .75em;
+        gap: 6px;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .how-card {
+        padding: 16px 12px;
+      }
+
+      .how-num {
+        font-size: 2em;
+      }
+
+      .how-icon {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .how-card h4 {
+        font-size: .85em;
+      }
+
+      .how-card p {
+        font-size: .75em;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-desc {
+        max-width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+
+      .fp,
+      .ai-float-badge {
+        display: none;
+      }
+
+      .sec {
+        padding: 50px 16px;
+      }
+
+      .sec-p {
+        font-size: .92em;
+      }
+
+      .stats-inner {
+        gap: 8px;
+        padding: 0 8px;
+      }
+
+      .stat-item {
+        min-width: 80px;
+      }
+
+      .stat-num {
+        font-size: 1.8em;
+      }
+
+      .stat-label {
+        font-size: .55em;
+      }
+
+      .ai-device {
+        border-radius: 20px;
+        padding: 16px;
+      }
+
+      .ai-inner {
+        padding: 50px 16px;
+      }
+
+      .marquee-section {
+        padding: 40px 0;
+      }
+
+      .marquee-label {
+        font-size: .65em;
+        margin-bottom: 20px;
+      }
+
+      .security-grid {
+        gap: 24px;
+      }
+
+      .sec-list-item {
+        gap: 12px;
+      }
+
+      .trust-inner {
+        padding: 48px 16px;
+      }
+
+      .trust-badges {
+        gap: 6px;
+      }
+
+      .tbadge {
+        padding: 8px 12px;
+        font-size: .72em;
+      }
+
+      .cta-section {
+        padding: 60px 16px 40px;
+      }
+
+      .cta-h2 {
+        font-size: clamp(1.6em, 7vw, 2.5em);
+      }
+
+      .cta-sub {
+        font-size: .85em;
+      }
+
+      #ig-banner {
+        font-size: .7em;
+        padding: 6px 10px;
+        gap: 6px;
+      }
+
+      #ig-banner svg {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     /* Very small phones */
     @media(max-width:400px) {
-      .hero { padding: 130px 12px 40px; }
-      .hero-h1 { font-size: 2em; }
-      .hero-sub { font-size: .82em; }
-      .hero-stats { gap: 6px; }
-      .hstat { font-size: .62em; padding: 5px 10px; }
-      .btn-primary { font-size: .88em; padding: 14px 20px; }
-      .btn-ghost { font-size: .88em; padding: 14px 20px; }
-      .sec-h2 { font-size: 1.8em; }
-      .features-grid { gap: 12px; }
-      .feat-card { padding: 16px; }
-      .tools-mega { grid-template-columns: 1fr 1fr; gap: 5px; }
-      .tool-chip { padding: 8px 10px; font-size: .7em; }
-      .how-grid { grid-template-columns: 1fr; gap: 10px; }
-      .stat-item { min-width: 60px; padding: 12px 6px; }
-      .stat-num { font-size: 1.4em; }
-      .stat-label { font-size: .5em; letter-spacing: 0.5px; }
-      .nav-inner { height: 52px; }
-      .nav-logo { font-size: 1.2em; }
-      .nav-cta { padding: 6px 14px; font-size: .72em; }
-      .footer-inner { padding: 32px 12px 24px; }
-      .ai-mini-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
-      .ai-mini-card { padding: 8px; font-size: .65em; }
-      #ig-banner { font-size: .62em; }
+      .hero {
+        padding: 130px 12px 40px;
+      }
+
+      .hero-h1 {
+        font-size: 2em;
+      }
+
+      .hero-sub {
+        font-size: .82em;
+      }
+
+      .hero-stats {
+        gap: 6px;
+      }
+
+      .hstat {
+        font-size: .62em;
+        padding: 5px 10px;
+      }
+
+      .btn-primary {
+        font-size: .88em;
+        padding: 14px 20px;
+      }
+
+      .btn-ghost {
+        font-size: .88em;
+        padding: 14px 20px;
+      }
+
+      .sec-h2 {
+        font-size: 1.8em;
+      }
+
+      .features-grid {
+        gap: 12px;
+      }
+
+      .feat-card {
+        padding: 16px;
+      }
+
+      .tools-mega {
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+      }
+
+      .tool-chip {
+        padding: 8px 10px;
+        font-size: .7em;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .stat-item {
+        min-width: 60px;
+        padding: 12px 6px;
+      }
+
+      .stat-num {
+        font-size: 1.4em;
+      }
+
+      .stat-label {
+        font-size: .5em;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-inner {
+        height: 52px;
+      }
+
+      .nav-logo {
+        font-size: 1.2em;
+      }
+
+      .nav-cta {
+        padding: 6px 14px;
+        font-size: .72em;
+      }
+
+      .footer-inner {
+        padding: 32px 12px 24px;
+      }
+
+      .ai-mini-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+
+      .ai-mini-card {
+        padding: 8px;
+        font-size: .65em;
+      }
+
+      #ig-banner {
+        font-size: .62em;
+      }
     }
   </style>
 </head>
@@ -1959,7 +2391,11 @@
     <div class="hero-btns">
       <a href="https://play.google.com/store/apps/details?id=com.suhail.imagerstools" target="_blank"
         class="btn-primary">▶&nbsp; Download on Google Play</a>
-      <a href="#features" class="btn-ghost">✦&nbsp; Explore Features</a>
+      <a href="privacy.html" target="_blank" class="btn-arcane">
+        <div class="btn-arcane-core"></div>
+        <span class="btn-arcane-icon">🛡️</span>
+        <span>Privacy Policy</span>
+      </a>
     </div>
     <div class="hero-stats">
       <span class="hstat"><strong>35+</strong> Tools</span>
@@ -2071,14 +2507,16 @@
       <div class="feat-card rv">
         <div class="feat-icon-wrap" style="background:rgba(255,128,64,.1);">🖊️</div>
         <h3>Multi-Layer Signature</h3>
-        <p>Draw, type, or stamp image signatures on PDFs and images. Multi-layer support with rotation, opacity, and per-page control.
+        <p>Draw, type, or stamp image signatures on PDFs and images. Multi-layer support with rotation, opacity, and
+          per-page control.
           Flatten or keep editable. Apply to all pages at once.</p>
         <span class="feat-tag ft-edit">Signature · PRO</span>
       </div>
       <div class="feat-card rv">
         <div class="feat-icon-wrap" style="background:rgba(155,109,255,.1);">✏️</div>
         <h3>Pro Image Editor</h3>
-        <p>20+ adjustments: brightness, contrast, saturation, sharpness, exposure, temperature, vignette, grain, clarity, dehaze, and more.
+        <p>20+ adjustments: brightness, contrast, saturation, sharpness, exposure, temperature, vignette, grain,
+          clarity, dehaze, and more.
           GPU-accelerated live preview with 15+ filters. Smart crop and geometry tools.</p>
         <span class="feat-tag ft-ai">Editor · GPU Powered</span>
       </div>
@@ -2207,7 +2645,8 @@
             <div>
               <h5>Smart Scan Edge Detection <span
                   style="font-family:var(--fm);font-size:.7em;color:var(--mint);margin-left:6px;">AI</span></h5>
-              <p>Real-time document edge detection during camera scan. Auto perspective correction, AI blank page detection, and multi-page batch scanning.</p>
+              <p>Real-time document edge detection during camera scan. Auto perspective correction, AI blank page
+                detection, and multi-page batch scanning.</p>
             </div>
           </div>
         </div>
@@ -2519,6 +2958,11 @@
     <div class="cta-btns rv">
       <a href="https://play.google.com/store/apps/details?id=com.suhail.imagerstools" target="_blank"
         class="btn-primary" style="font-size:1.1em;padding:18px 44px;">▶&nbsp; Download Free on Google Play</a>
+      <a href="privacy.html" target="_blank" class="btn-arcane">
+        <div class="btn-arcane-core"></div>
+        <span class="btn-arcane-icon">🛡️</span>
+        <span>Privacy Policy</span>
+      </a>
     </div>
     <p class="cta-note rv">Free to download · No account required · No file uploads · Works fully offline</p>
   </section>
@@ -2533,7 +2977,10 @@
           Snapdoc<span style="color:var(--fire)">X</span>
         </div>
         <p class="footer-desc">All-in-one document &amp; image processing app with on-device AI. 35+ tools built for
-          Android with C++ native engines. All processing happens on your device — no files ever uploaded to any server.</p>
+          Android with C++ native engines. All processing happens on your device — no files ever uploaded to any server.
+        </p>
+        <p style="font-size: .8em; color: var(--mist); margin-top: 10px; font-family: var(--fm);">Support: <a
+            href="mailto:rahilwani8090@gmail.com">rahilwani8090@gmail.com</a></p>
       </div>
       <div class="footer-col">
         <h5>TOOLS</h5>
