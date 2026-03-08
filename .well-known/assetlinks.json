@@ -1,14 +1,14 @@
 [
     {
         "relation": [
-            "delegate_permission/common.handle_all_urls"
+            "delegate_permission/common.handle_all_urls",
+            "delegate_permission/common.get_login_creds"
         ],
         "target": {
             "namespace": "android_app",
             "package_name": "com.suhail.imagerstools",
             "sha256_cert_fingerprints": [
-                "D2:4D:80:C9:70:5F:B8:E2:9A:5C:6F:EE:4A:20:84:59:19:4C:68:C0:2B:12:DF:7E:18:77:C7:E5:89:93:DC:49",
-                "68:DE:D7:7D:77:87:F6:A1:D5:2A:AC:4B:5C:9F:05:F8:E1:A7:04:1E:40:CD:87:46:46:DA:AD:3C:4A:05:21:28"
+                "D2:4D:80:C9:70:5F:B8:E2:9A:5C:6F:EE:4A:20:84:59:19:4C:68:C0:2B:12:DF:7E:18:77:C7:E5:89:93:DC:49"
             ]
         }
     }
