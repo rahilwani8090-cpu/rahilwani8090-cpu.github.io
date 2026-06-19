@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://snapdocx.in/logo.jpeg">
   <meta name="twitter:url" content="https://snapdocx.in">
   <script
-    type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SnapDocx","operatingSystem":"Android","applicationCategory":"UtilitiesApplication","url":"https://snapdocx.in","image":"https://snapdocx.in/logo.jpeg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://play.google.com/store/apps/details?id=com.suhail.imagerstools","author":{"@type":"Person","name":"Suhail Wani"}}</script>
+    type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SnapDocx","operatingSystem":"Android","applicationCategory":"UtilitiesApplication","url":"https://snapdocx.in","image":"https://snapdocx.in/logo.jpeg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://play.google.com/store/apps/details?id=com.suhail.imagerstools","author":{"@type":"Organization","name":"SDX STUDIO"}}</script>
   <title>SnapDocx — AI Document & Image Tools for Android</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap"
@@ -274,7 +274,7 @@
     /* NAV */
     .nav {
       position: fixed;
-      top: 36px;
+      top: 0;
       left: 0;
       right: 0;
       z-index: 200;
@@ -394,7 +394,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 160px 24px 80px;
+      padding: 130px 24px 80px;
       position: relative;
       z-index: 1;
       overflow: hidden;
@@ -1915,7 +1915,7 @@
       }
 
       .hero {
-        padding: 160px 20px 60px;
+        padding: 130px 20px 60px;
       }
 
       .hero-h1 {
@@ -1969,11 +1969,6 @@
 
       .nav {
         padding: 0 16px;
-      }
-
-      #ig-banner {
-        font-size: .75em;
-        padding: 7px 12px;
       }
     }
 
@@ -2053,11 +2048,11 @@
       }
 
       .nav {
-        top: 32px;
+        top: 0;
       }
 
       .hero {
-        padding: 140px 16px 50px;
+        padding: 110px 16px 50px;
         min-height: auto;
       }
 
@@ -2222,23 +2217,12 @@
       .cta-sub {
         font-size: .85em;
       }
-
-      #ig-banner {
-        font-size: .7em;
-        padding: 6px 10px;
-        gap: 6px;
-      }
-
-      #ig-banner svg {
-        width: 14px;
-        height: 14px;
-      }
     }
 
     /* Very small phones */
     @media(max-width:400px) {
       .hero {
-        padding: 130px 12px 40px;
+        padding: 100px 12px 40px;
       }
 
       .hero-h1 {
@@ -2336,9 +2320,6 @@
         font-size: .65em;
       }
 
-      #ig-banner {
-        font-size: .62em;
-      }
     }
   </style>
 </head>
@@ -2355,21 +2336,7 @@
     <div class="bb-noise"></div>
   </div>
 
-  <!-- INSTAGRAM TOP BANNER -->
-  <div id="ig-banner"
-    style="position:fixed;top:0;left:0;right:0;z-index:300;background:linear-gradient(90deg,#833AB4,#FD1D1D,#F77737);text-align:center;padding:8px 16px;font-size:.82em;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;"
-    onclick="window.open('https://www.instagram.com/snapdocx_?igsh=OWZvaGU2dzczcDZy','_blank')">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-    Follow us on Instagram — @snapdocx_
-    <span
-      onclick="event.stopPropagation();document.getElementById('ig-banner').style.display='none';document.querySelector('.nav').style.top='0px';document.querySelector('.hero').style.paddingTop='140px';"
-      style="margin-left:12px;opacity:.7;font-size:1.1em;cursor:pointer;">✕</span>
-  </div>
+
 
   <!-- NAVBAR -->
   <nav class="nav">
@@ -3024,18 +2991,8 @@
       </div>
     </div>
     <div style="text-align:center;padding:24px 0 20px;border-bottom:1px solid var(--edge);">
-      <a href="https://www.instagram.com/snapdocx_?igsh=OWZvaGU2dzczcDZy" target="_blank"
-        style="display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:999px;background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737);color:#fff;font-weight:700;font-size:.9em;transition:all .3s;box-shadow:0 4px 20px rgba(131,58,180,.4);text-decoration:none;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-        Follow us on Instagram
-      </a>
-      <p style="margin-top:14px;font-size:.8em;color:var(--fog);font-family:'DM Mono',monospace;">Developed by <strong
-          style="color:var(--mist);">Suhail Wani</strong></p>
+      <p style="font-size:.8em;color:var(--fog);font-family:'DM Mono',monospace;">Developed &amp; Powered by <strong
+          style="color:var(--mist);">SDX STUDIO</strong></p>
     </div>
     <div class="footer-bottom">
       <span>© 2026 SnapDocx · All rights reserved</span>
